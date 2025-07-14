@@ -12,3 +12,12 @@ body {
   --color-border: #6a7282;
   --color-accent: #e75f00;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,7 +1,28 @@
+import { useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import EyebrowText from "../ui/EyebrowText";
 
 export default function CaseStudiesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -scrollRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: scrollRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className="bg-light text-dark flex w-full">
       <div className="w-full space-y-16">
@@ -21,31 +42,38 @@ export default function CaseStudiesSection() {
 
           <div className="flex w-1/2 items-end justify-end">
             <div className="flex items-center gap-x-3">
-              <button className="border-border/40 bg-border/10 rounded-lg border p-2">
+              <button
+                onClick={scrollLeft}
+                className="border-border/40 hover:text-accent bg-border/10 hover:bg-border/20 cursor-pointer rounded-lg border p-2 duration-300"
+              >
                 <Icon icon="line-md:chevron-left" className="size-4" />
               </button>
-              <button className="border-border/40 bg-border/10 rounded-lg border p-2">
+              <button
+                onClick={scrollRight}
+                className="border-border/40 hover:text-accent bg-border/10 hover:bg-border/20 cursor-pointer rounded-lg border p-2 duration-300"
+              >
                 <Icon icon="line-md:chevron-right" className="size-4" />
               </button>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-6 overflow-x-auto pb-20 pl-20">
-          <div className="flex gap-6">
-            <CaseStudiesContainer
-              logo="/images/case-studies/pacha.png"
-              description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
-              image="/images/case-studies/pacha2.png"
-              classname="bg-[#BE9AEC]"
-            />
-            <CaseStudiesContainer
-              logo="/images/case-studies/converso.png"
-              description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
-              image="/images/case-studies/converso2.png"
-              classname="bg-[#E5F1FE] mr-20"
-            />
-          </div>
+        <div
+          className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth pr-10 pb-20 pl-20"
+          ref={scrollRef}
+        >
+          <CaseStudiesContainer
+            logo="/images/case-studies/pacha.png"
+            description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
+            image="/images/case-studies/pacha2.png"
+            classname="bg-[#BE9AEC]"
+          />
+          <CaseStudiesContainer
+            logo="/images/case-studies/converso.png"
+            description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
+            image="/images/case-studies/converso2.png"
+            classname="bg-[#E5F1FE]"
+          />
         </div>
       </div>
     </section>
