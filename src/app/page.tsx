@@ -1,13 +1,11 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
-import HeroSection from "@/components/sections/HeroSection";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import SolutionsSection from "@/components/sections/SolutionsSection";
-import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
-import BlurButton from "@/components/ui/buttons/BlurButton";
-import TalkWithDavidButton from "@/components/ui/buttons/TalkWithDavidButton";
-import { Icon } from "@iconify/react/dist/iconify.js";
+import Hero from "@/components/sections/Hero";
+import WhatWeDo from "@/components/sections/WhatWeDo";
+import CaseStudies from "@/components/sections/CaseStudies";
 
 const SCROLL_THRESHOLD = 100;
 
@@ -90,9 +88,9 @@ export default function Home() {
       </div>
 
       {/* Page Sections */}
-      <HeroSection />
-      <WhatWeDoSection />
-      <CaseStudiesSection />
+      <Hero />
+      <WhatWeDo />
+      <CaseStudies />
       <HowItWorksSection />
       <SolutionsSection />
     </div>

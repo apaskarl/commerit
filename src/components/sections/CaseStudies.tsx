@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import EyebrowText from "../ui/EyebrowText";
 
-export default function CaseStudiesSection() {
+export default function CaseStudies() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -24,33 +24,37 @@ export default function CaseStudiesSection() {
   };
 
   return (
-    <section className="bg-light text-dark flex w-full">
-      <div className="w-full space-y-16">
-        <div className="flex justify-between px-20 pt-20">
-          <div className="w-1/2 space-y-8">
+    <section
+      id="caseStudies"
+      className="bg-light flex items-center justify-center py-20 text-black"
+    >
+      <div className="container mx-auto flex max-w-7xl flex-col gap-y-14 px-4">
+        <div className="flex justify-between">
+          <div className="flex-1 space-y-8">
             <EyebrowText text="Case Studies" />
+
             <div className="space-y-6">
               <h1 className="text-4xl font-medium tracking-tight">
                 Stories about impact
               </h1>
-              <h2 className="text-lg text-gray-500">
+              <h2 className="text-lg text-[#101114B2]/70">
                 Sociis faucibus non vestibulum fermentum aliquam amet. At
                 scelerisque a tincidunt sit faucibus in pellentesque mattis.
               </h2>
             </div>
           </div>
 
-          <div className="flex w-1/2 items-end justify-end">
-            <div className="flex items-center gap-x-3">
+          <div className="flex items-end justify-end">
+            <div className="flex items-center gap-x-2">
               <button
                 onClick={scrollLeft}
-                className="border-border/40 hover:text-accent bg-border/10 hover:bg-border/20 cursor-pointer rounded-lg border p-2 duration-300"
+                className="cursor-pointer rounded-lg border border-white/10 bg-white/5 p-2 duration-300 hover:opacity-50"
               >
                 <Icon icon="line-md:chevron-left" className="size-4" />
               </button>
               <button
                 onClick={scrollRight}
-                className="border-border/40 hover:text-accent bg-border/10 hover:bg-border/20 cursor-pointer rounded-lg border p-2 duration-300"
+                className="cursor-pointer rounded-lg border border-white/10 bg-white/5 p-2 duration-300 hover:opacity-50"
               >
                 <Icon icon="line-md:chevron-right" className="size-4" />
               </button>
@@ -59,7 +63,7 @@ export default function CaseStudiesSection() {
         </div>
 
         <div
-          className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth pr-10 pb-20 pl-20"
+          className="no-scrollbar flex gap-6 overflow-x-auto scroll-smooth"
           ref={scrollRef}
         >
           <CaseStudiesContainer

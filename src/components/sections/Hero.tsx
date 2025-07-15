@@ -1,11 +1,10 @@
 import EyebrowText from "../ui/EyebrowText";
-import BlurButton from "../ui/buttons/BlurButton";
 
-export default function HeroSection() {
+export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex w-full items-center justify-center bg-cover bg-center pt-40 pb-20 text-white"
+      className="relative flex items-center justify-center bg-cover bg-center pt-40 pb-20 text-white"
     >
       <img
         src="/images/hero-background.png"
@@ -46,8 +45,8 @@ export default function HeroSection() {
         </div>
 
         <div className="flex w-full items-center justify-between">
-          <p className="w-[13%] border-r border-white/15 pr-10 font-mono text-[11px] leading-relaxed font-medium tracking-wider text-white/45 uppercase">
-            Trusted by industry leaders
+          <p className="w-[15%] border-r border-white/15 pr-10 font-mono text-[11px] leading-relaxed font-medium tracking-wider text-white/45 uppercase">
+            Trusted By <br /> Industry Leaders
           </p>
 
           <img src="/images/leaders/l1.png" alt="L1" />
