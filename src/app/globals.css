@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body {
-  font-family: var(--font-inter);
-}
-
 @theme {
   --color-primary: #63edd1;
   --color-dark: #101114;
@@ -11,13 +7,80 @@ body {
   --color-subtext: #6a7282;
   --color-border: #6a7282;
   --color-accent: #e75f00;
+
+  /* Font family customization */
+  --font-sans: "ABCMonumentGrotesk", sans-serif;
+  --font-mono: "ABCMonumentGroteskSemiMono", monospace;
 }
 
+/* Regular (400) */
+@font-face {
+  font-family: "ABCMonumentGrotesk";
+  src: url("/fonts/ABC Monument-Grotesk/ABCMonumentGrotesk-Regular-Trial.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Medium (500) */
+@font-face {
+  font-family: "ABCMonumentGrotesk";
+  src: url("/fonts/ABC Monument-Grotesk/ABCMonumentGrotesk-Medium-Trial.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bold (700) */
+@font-face {
+  font-family: "ABCMonumentGrotesk";
+  src: url("/fonts/ABC Monument-Grotesk/ABCMonumentGrotesk-Bold-Trial.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - Mono */
+@font-face {
+  font-family: "ABCMonumentGroteskSemiMono";
+  src: url("/fonts/ABC Monument Grotesk Semi-Mono/ABCMonumentGroteskSemiMono-Regular-Trial.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - Mono */
+@font-face {
+  font-family: "ABCMonumentGroteskSemiMono";
+  src: url("/fonts/ABC Monument Grotesk Semi-Mono/ABCMonumentGroteskSemiMono-Medium-Trial.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - Mono */
+@font-face {
+  font-family: "ABCMonumentGroteskSemiMono";
+  src: url("/fonts/ABC Monument Grotesk Semi-Mono/ABCMonumentGroteskSemiMono-Bold-Trial.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hide Scrollbar */
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Leading */
+.lh-full {
+  line-height: 100%;
 }

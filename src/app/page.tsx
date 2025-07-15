@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 import HeroSection from "@/components/sections/HeroSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
@@ -9,42 +7,26 @@ import SolutionsSection from "@/components/sections/SolutionsSection";
 import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
 import BlurButton from "@/components/ui/buttons/BlurButton";
 import TalkWithDavidButton from "@/components/ui/buttons/TalkWithDavidButton";
-
-// Constants for animation configurations
-const NAV_BUTTONS_CONTAINER_ANIMATION = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 0.3,
-      delay: 0.3,
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const NAV_BUTTON_ITEM_ANIMATION = {
-  hidden: { opacity: 0, x: 20 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.3,
-    },
-  },
-};
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const SCROLL_THRESHOLD = 100;
 
-interface NavButtonProps {
+const NavButton = ({
+  text,
+  dropdown,
+}: {
   text: string;
-}
-
-const NavButton = ({ text }: NavButtonProps) => {
+  dropdown?: boolean;
+}) => {
   return (
-    <button className="hover:text-accent cursor-pointer px-4 py-3 text-xs font-medium tracking-wide uppercase duration-300">
-      {text}
+    <button className="flex cursor-pointer items-center gap-x-2 px-1 py-2 font-mono text-xs font-medium text-white/70 uppercase duration-300 hover:opacity-50">
+      <p className="leading-[100%]">{text}</p>
+      {dropdown && (
+        <Icon
+          icon="famicons:chevron-down-outline"
+          className="size-3 text-white"
+        />
+      )}
     </button>
   );
 };
@@ -52,12 +34,10 @@ const NavButton = ({ text }: NavButtonProps) => {
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAtTop, setIsAtTop] = useState(true);
 
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
 
-    setIsAtTop(currentScrollY === 0);
     setShowNav(
       currentScrollY <= lastScrollY || currentScrollY <= SCROLL_THRESHOLD,
     );
@@ -69,60 +49,45 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const navClasses = `fixed top-0 z-20 flex w-full items-center justify-between px-20 text-white duration-300 ${
-    showNav ? "translate-y-0" : "-translate-y-full"
-  } ${!isAtTop ? "bg-black/40 py-2 backdrop-blur-xs" : "bg-black/0 py-4"}`;
-
-  const buttonsContainerClasses = `${isAtTop ? "bg-gray-600/20 backdrop-blur-xs" : ""} flex items-center gap-x-5 rounded-xl p-2`;
-
   return (
     <div className="relative">
       {/* Navigation */}
-      <nav className={navClasses}>
-        <motion.a
-          href="/"
-          className="flex items-center gap-x-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeIn" }}
-        >
-          <Image
-            src="/images/logo.png"
-            alt="Commerit Logo"
-            width={25}
-            height={25}
-            priority
-          />
-          <span className="text-lg font-bold">Commerit</span>
-        </motion.a>
 
-        <motion.div
-          className={buttonsContainerClasses}
-          variants={NAV_BUTTONS_CONTAINER_ANIMATION}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+      <div className={`flex w-full items-center justify-center`}>
+        <nav
+          className={` ${
+            showNav ? "translate-y-0" : "-translate-y-full"
+          } fixed top-0 z-20 container mx-auto flex max-w-7xl items-center justify-between px-4 py-4 text-white duration-300`}
         >
-          <div className="flex items-center">
-            {["Case Studies", "What We Do", "Solutions", "How It Works"].map(
-              (item) => (
-                <motion.div key={item} variants={NAV_BUTTON_ITEM_ANIMATION}>
-                  <NavButton text={item} />
-                </motion.div>
-              ),
-            )}
-          </div>
+          <a href="/" className="flex items-center gap-x-3">
+            <img src="/images/logo.png" alt="" className="size-7" />
+            <span className="text-2xl font-bold">Commerit</span>
+          </a>
 
-          <div className="flex items-center gap-x-2">
-            <motion.div variants={NAV_BUTTON_ITEM_ANIMATION}>
-              <BlurButton text="Explore Pricing" />
-            </motion.div>
-            <motion.div variants={NAV_BUTTON_ITEM_ANIMATION}>
-              <TalkWithDavidButton />
-            </motion.div>
+          <div className="flex items-center gap-x-8 rounded-xl bg-gray-500/10 py-2 pr-2 pl-6 backdrop-blur-sm">
+            <div className="flex items-center gap-x-7">
+              <NavButton text="Case Studies" />
+              <NavButton text="Customers" />
+              <NavButton text="About" />
+              <NavButton text="Products" dropdown />
+            </div>
+
+            <div className="flex items-stretch gap-x-2">
+              <button className="flex cursor-pointer items-center rounded-lg border border-white/15 bg-black/10 px-5 font-mono text-xs font-medium uppercase backdrop-blur-sm duration-200 hover:opacity-50">
+                Explore Pricing
+              </button>
+              <button className="flex cursor-pointer items-center gap-x-3 rounded-lg border border-white bg-white py-1 pr-4 pl-1 font-mono text-xs font-medium text-black uppercase backdrop-blur-sm duration-200 hover:opacity-50">
+                <img
+                  src="/images/david.png"
+                  alt=""
+                  className="aspect-square size-8 object-cover"
+                />
+                Talk with David
+              </button>
+            </div>
           </div>
-        </motion.div>
-      </nav>
+        </nav>
+      </div>
 
       {/* Page Sections */}
       <HeroSection />

@@ -1,50 +1,52 @@
 import EyebrowText from "../ui/EyebrowText";
 import BlurButton from "../ui/buttons/BlurButton";
-import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
     <section
-      className="flex min-h-screen w-full items-center justify-center bg-cover bg-center text-white"
-      style={{ backgroundImage: "url('/images/hero-background.png')" }}
+      id="hero"
+      className="relative flex w-full items-center justify-center bg-cover bg-center pt-40 pb-20 text-white"
     >
-      <div className="w-full px-20 pb-10">
-        <div className="h-36 w-full" />
+      <img
+        src="/images/hero-background.png"
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+      />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8, ease: "easeIn" }}
-          className="flex w-1/2 flex-col gap-y-14"
-        >
-          <div className="flex flex-col gap-y-8">
+      <div className="z-20 container mx-auto max-w-7xl space-y-20 px-4">
+        <div className="w-1/2 space-y-14">
+          <div className="space-y-8">
             <EyebrowText text="AI Sofware Agency" />
 
-            <h1 className="text-6xl leading-16 font-medium tracking-tight">
-              We build custom AI agents that automate your business
-            </h1>
+            <div className="space-y-6">
+              <h1 className="text-6xl leading-16 font-medium tracking-tight">
+                We build custom AI agents that automate your business
+              </h1>
 
-            <p className="text-subtext text-lg">
-              From support to sales to operations—we replace manual tasks with
-              tailored AI systems.
-            </p>
+              <p className="text-lg text-white/70">
+                From support to sales to operations—we replace manual tasks with
+                tailored AI systems.
+              </p>
+            </div>
           </div>
 
-          <div className="flex items-center gap-x-2">
-            <BlurButton text="Explore Pricing" />
-            <button className="rounded-lg border bg-white px-5 py-3 text-xs font-medium tracking-wide text-black uppercase">
+          <div className="flex items-stretch gap-x-3">
+            <button className="flex cursor-pointer items-center gap-x-3 rounded-lg border border-white bg-white py-1 pr-4 pl-1 font-mono text-xs font-medium text-black uppercase backdrop-blur-sm duration-200 hover:opacity-50">
+              <img
+                src="/images/david.png"
+                alt=""
+                className="aspect-square size-8 object-cover"
+              />
               Talk with David
             </button>
+            <button className="flex cursor-pointer items-center rounded-lg border border-white/15 bg-black/10 px-5 font-mono text-xs font-medium uppercase backdrop-blur-sm duration-200 hover:opacity-50">
+              Explore Pricing
+            </button>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2, ease: "easeIn" }}
-          className="mt-16 flex w-full items-center justify-between"
-        >
-          <p className="text-border border-border w-[13%] border-r pr-10 text-[11px] leading-relaxed font-medium tracking-wide uppercase">
+        <div className="flex w-full items-center justify-between">
+          <p className="w-[13%] border-r border-white/15 pr-10 font-mono text-[11px] leading-relaxed font-medium tracking-wider text-white/45 uppercase">
             Trusted by industry leaders
           </p>
 
@@ -54,7 +56,7 @@ export default function HeroSection() {
           <img src="/images/leaders/l4.png" alt="L1" />
           <img src="/images/leaders/l5.png" alt="L1" />
           <img src="/images/leaders/l6.png" alt="L1" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
