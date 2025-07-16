@@ -1,13 +1,14 @@
+import CTAButtons from "../ui/CTAButtons";
 import EyebrowText from "../ui/EyebrowText";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center bg-cover bg-center pt-40 pb-20 text-white"
+      className="bg-dark relative flex items-center justify-center pt-40 pb-20 text-white"
     >
       <img
-        src="/images/hero-background.png"
+        src="/images/backgrounds/hero.png"
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />
@@ -29,26 +30,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex items-stretch gap-x-3">
-            <button className="flex cursor-pointer items-center gap-x-3 rounded-lg border border-white bg-white py-1 pr-4 pl-1 font-mono text-xs font-medium text-black uppercase backdrop-blur-sm duration-200 hover:opacity-50">
-              <img
-                src="/images/david.png"
-                alt=""
-                className="aspect-square size-8 object-cover"
-              />
-              Talk with David
-            </button>
-            <button className="flex cursor-pointer items-center rounded-lg border border-white/15 bg-black/10 px-5 font-mono text-xs font-medium uppercase backdrop-blur-sm duration-200 hover:opacity-50">
-              Explore Pricing
-            </button>
-          </div>
+          <CTAButtons />
         </div>
 
         <div className="flex w-full items-center justify-between">
-          <p className="w-[15%] border-r border-white/15 pr-10 font-mono text-[11px] leading-relaxed font-medium tracking-wider text-white/45 uppercase">
+          <p className="font-mono text-[11px] leading-loose font-medium tracking-wider text-white/45 uppercase">
             Trusted By <br /> Industry Leaders
           </p>
-
+          <span className="mx-6 w-[1px] self-stretch bg-white/30" />
           <img src="/images/leaders/l1.png" alt="L1" />
           <img src="/images/leaders/l2.png" alt="L1" />
           <img src="/images/leaders/l3.png" alt="L1" />

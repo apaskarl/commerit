@@ -1,11 +1,19 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import SolutionsSection from "@/components/sections/SolutionsSection";
+import Logo from "@/components/ui/Logo";
 import Hero from "@/components/sections/Hero";
 import WhatWeDo from "@/components/sections/WhatWeDo";
 import CaseStudies from "@/components/sections/CaseStudies";
+import HowItWorks from "@/components/sections/HowItWorks";
+import SolutionsMain from "@/components/sections/SolutionsMain";
+import SolutionsCleintele from "@/components/sections/SolutionsCleintele";
+import SolutionsPlatform from "@/components/sections/SolutionsPlatform";
+import Testimonials from "@/components/sections/Testimonials";
+import FAQs from "@/components/sections/FAQs";
+import CTA from "@/components/sections/CTA";
+import CTAButtons from "@/components/ui/CTAButtons";
+import Footer from "@/components/sections/Footer";
 
 const SCROLL_THRESHOLD = 100;
 
@@ -57,10 +65,7 @@ export default function Home() {
             showNav ? "translate-y-0" : "-translate-y-full"
           } fixed top-0 z-20 container mx-auto flex max-w-7xl items-center justify-between px-4 py-4 text-white duration-300`}
         >
-          <a href="/" className="flex items-center gap-x-3">
-            <img src="/images/logo.png" alt="" className="size-7" />
-            <span className="text-2xl font-bold">Commerit</span>
-          </a>
+          <Logo />
 
           <div className="flex items-center gap-x-8 rounded-xl bg-gray-500/10 py-2 pr-2 pl-6 backdrop-blur-sm">
             <div className="flex items-center gap-x-7">
@@ -70,19 +75,7 @@ export default function Home() {
               <NavButton text="Products" dropdown />
             </div>
 
-            <div className="flex items-stretch gap-x-2">
-              <button className="flex cursor-pointer items-center rounded-lg border border-white/15 bg-black/10 px-5 font-mono text-xs font-medium uppercase backdrop-blur-sm duration-200 hover:opacity-50">
-                Explore Pricing
-              </button>
-              <button className="flex cursor-pointer items-center gap-x-3 rounded-lg border border-white bg-white py-1 pr-4 pl-1 font-mono text-xs font-medium text-black uppercase backdrop-blur-sm duration-200 hover:opacity-50">
-                <img
-                  src="/images/david.png"
-                  alt=""
-                  className="aspect-square size-8 object-cover"
-                />
-                Talk with David
-              </button>
-            </div>
+            <CTAButtons inverted />
           </div>
         </nav>
       </div>
@@ -91,8 +84,14 @@ export default function Home() {
       <Hero />
       <WhatWeDo />
       <CaseStudies />
-      <HowItWorksSection />
-      <SolutionsSection />
+      <HowItWorks />
+      <SolutionsMain />
+      <SolutionsCleintele />
+      <SolutionsPlatform />
+      <Testimonials />
+      <FAQs />
+      <CTA />
+      <Footer />
     </div>
   );
 }
