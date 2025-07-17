@@ -74,7 +74,7 @@ export default function WhatWeDo() {
         className="no-scrollbar w-full gap-6 overflow-x-auto scroll-smooth pr-[calc((100vw-1280px)/2)] pl-[calc((100vw-1280px)/2)]"
         ref={scrollRef}
       >
-        <div className="flex items-stretch gap-6 px-2">
+        <div className="flex items-stretch gap-6 px-4">
           <WhatWeDoCard
             title="Lower Costs"
             subtitle="Cut operational expenses by automating repetitive tasks. Allocate your budget more efficiently for growth."
@@ -90,7 +90,7 @@ export default function WhatWeDo() {
             subtitle="Provide round-the-clock support without increasing costs. Never miss a customer interaction."
             image="/images/what-we-do/availability.png"
           />
-          <div className="min-w-20" />
+          <div className="min-w-[1px]" />
         </div>
       </div>
     </section>

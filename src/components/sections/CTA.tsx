@@ -1,6 +1,10 @@
+import { motion } from "framer-motion";
 import CTAButtons from "../ui/CTAButtons";
 
 export default function CTA() {
+  const leaders = ["l7", "l8", "l9", "l10", "l11", "l12"];
+  const duplicatedLeaders = [...leaders, ...leaders];
+
   return (
     <section
       id="cta"
@@ -35,17 +39,44 @@ export default function CTA() {
           />
         </div>
 
-        <div className="flex w-full items-center justify-between pt-1">
-          <p className="font-mono text-[11px] leading-loose font-medium tracking-wider text-white/45 uppercase">
+        <div className="flex flex-col items-center space-y-6">
+          <p className="flex text-center font-mono text-[11px] leading-loose font-medium tracking-wider text-white/45 uppercase md:hidden">
+            Trusted By Industry Leaders
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between gap-3">
+          <p className="hidden font-mono text-[11px] leading-loose font-medium tracking-wider text-white/45 uppercase md:flex">
             Trusted By <br /> Industry Leaders
           </p>
-          <span className="mx-6 w-[1px] self-stretch bg-white/30" />
-          <img src="/images/leaders/l7.png" />
-          <img src="/images/leaders/l8.png" />
-          <img src="/images/leaders/l9.png" />
-          <img src="/images/leaders/l10.png" />
-          <img src="/images/leaders/l11.png" />
-          <img src="/images/leaders/l12.png" />
+
+          <span className="mx-6 hidden w-[1px] self-stretch bg-white/30 md:flex" />
+
+          <div className="relative flex-1 overflow-hidden">
+            <div className="from-dark pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-20 bg-gradient-to-r to-transparent" />
+
+            <motion.div
+              className="flex items-center gap-x-14"
+              animate={{
+                x: ["0%", "-80%"],
+              }}
+              transition={{
+                duration: 20,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+            >
+              {duplicatedLeaders.map((leader, index) => (
+                <img
+                  key={`${leader}-${index}`}
+                  src={`/images/leaders/${leader}.png`}
+                  alt={leader}
+                />
+              ))}
+            </motion.div>
+
+            <div className="from-dark pointer-events-none absolute top-0 right-0 bottom-0 z-10 w-20 bg-gradient-to-l to-transparent" />
+          </div>
         </div>
       </div>
     </section>

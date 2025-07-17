@@ -83,7 +83,7 @@ export default function CaseStudies() {
         className="no-scrollbar w-full gap-6 overflow-x-auto scroll-smooth pr-[calc((100vw-1280px)/2)] pl-[calc((100vw-1280px)/2)]"
         ref={scrollRef}
       >
-        <div className="flex items-stretch gap-9 px-2">
+        <div className="flex items-stretch gap-9 px-4">
           <CaseStudyCard
             description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
             logo="/images/case-studies/pacha.png"
@@ -96,7 +96,7 @@ export default function CaseStudies() {
             image="/images/case-studies/converso2.png"
             classname="bg-[#E5F1FE]"
           />
-          <div className="min-w-20" />
+          <div className="min-w-[1px]" />
         </div>
       </div>
     </section>

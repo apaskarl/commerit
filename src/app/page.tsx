@@ -14,28 +14,10 @@ import FAQs from "@/components/sections/FAQs";
 import CTA from "@/components/sections/CTA";
 import CTAButtons from "@/components/ui/CTAButtons";
 import Footer from "@/components/sections/Footer";
+import Menu from "@/components/Menu";
+import NavButton from "@/components/ui/NavButton";
 
 const SCROLL_THRESHOLD = 100;
-
-const NavButton = ({
-  text,
-  dropdown,
-}: {
-  text: string;
-  dropdown?: boolean;
-}) => {
-  return (
-    <button className="flex cursor-pointer items-center gap-x-2 px-1 py-2 font-mono text-xs font-medium text-white/70 uppercase duration-300 hover:opacity-50">
-      <p className="leading-[100%]">{text}</p>
-      {dropdown && (
-        <Icon
-          icon="famicons:chevron-down-outline"
-          className="size-3 text-white"
-        />
-      )}
-    </button>
-  );
-};
 
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
@@ -56,18 +38,19 @@ export default function Home() {
   }, [handleScroll]);
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       {/* Navigation */}
-
-      <div className={`flex w-full items-center justify-center`}>
+      <div className="flex w-full items-center justify-center">
         <nav
           className={` ${
             showNav ? "translate-y-0" : "-translate-y-full"
-          } fixed top-0 z-20 container mx-auto flex max-w-7xl items-center justify-between px-4 py-4 text-white duration-300`}
+          } fixed top-0 z-30 container mx-auto flex w-full items-center justify-between px-4 py-4 text-white duration-300 md:max-w-7xl`}
         >
           <Logo />
 
-          <div className="flex items-center gap-x-8 rounded-xl bg-gray-500/10 py-2 pr-2 pl-6 backdrop-blur-sm">
+          <Menu />
+
+          <div className="hidden items-center gap-x-8 rounded-xl bg-gray-500/10 py-2 pr-2 pl-6 backdrop-blur-sm md:flex">
             <div className="flex items-center gap-x-7">
               <NavButton text="Case Studies" />
               <NavButton text="Customers" />
