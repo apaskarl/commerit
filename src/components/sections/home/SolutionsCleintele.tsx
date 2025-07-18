@@ -1,4 +1,4 @@
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function SolutionsCleintele() {
   return (
@@ -8,20 +8,14 @@ export default function SolutionsCleintele() {
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="bg-dark relative flex flex-col items-center gap-y-14 rounded-3xl p-10 text-white">
-          <div className="z-10 mb-1 flex w-1/2 flex-col items-center space-y-8 text-center">
-            <EyebrowText text="Solutions" />
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Industries we work with
-              </h1>
-              <h2 className="text-lg leading-relaxed text-white/70">
-                Explore how our innovative solutions enhance efficiency and
-                drive success across various industries.
-              </h2>
-            </div>
-          </div>
+          <SectionTitle
+            eyebrowText="Solutions"
+            heading="Industries we work with"
+            subheading="Explore how our innovative solutions enhance efficiency and drive success across various industries."
+            classname="mb-1 flex flex-col items-center text-center"
+          />
 
-          <div className="z-10 grid grid-cols-3 divide-x divide-y divide-white/10 [&>*:nth-child(3n)]:border-r-0 [&>*:nth-last-child(-n+3)]:border-b-0">
+          <div className="z-10 grid grid-cols-1 divide-y divide-white/10 md:grid-cols-3 md:divide-x md:[&>*:nth-child(3n)]:border-r-0 md:[&>*:nth-last-child(-n+3)]:border-b-0">
             <IndustryCard
               icon="/images/icons/solutions-2/medical-mark.png"
               title="Medical Clinics"
@@ -89,11 +83,11 @@ const IndustryCard = ({
   subtitle: string;
 }) => {
   return (
-    <div className="flex h-64 flex-col justify-between gap-y-3 p-10">
+    <div className="flex h-64 flex-col justify-between gap-y-3 p-10 px-5 md:p-10">
       <img src={icon} alt="" className="w-max" />
 
       <div className="space-y-3">
-        <p className="text-2xl font-medium">{title}</p>
+        <p className="text-lg font-medium md:text-2xl">{title}</p>
         <p className="text-white/70">{subtitle}</p>
       </div>
     </div>

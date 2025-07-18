@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function CaseStudies() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -40,21 +40,13 @@ export default function CaseStudies() {
         </div>
 
         <div className="flex justify-between">
-          <div className="flex-1 space-y-8">
-            <EyebrowText text="Case Studies" />
+          <SectionTitle
+            eyebrowText="Case Studies"
+            heading="Stories about impact"
+            subheading="Sociis faucibus non vestibulum fermentum aliquam amet. At scelerisque a tincidunt sit faucibus in pellentesque mattis."
+          />
 
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Stories about impact
-              </h1>
-              <h2 className="text-dark/70 w-1/2 text-lg leading-relaxed">
-                Sociis faucibus non vestibulum fermentum aliquam amet. At
-                scelerisque a tincidunt sit faucibus in pellentesque mattis.
-              </h2>
-            </div>
-          </div>
-
-          <div className="flex items-end justify-end">
+          <div className="hidden items-end justify-end md:flex">
             <div className="flex items-center gap-x-2">
               <button
                 onClick={scrollLeft}
@@ -83,7 +75,7 @@ export default function CaseStudies() {
         className="no-scrollbar w-full gap-6 overflow-x-auto scroll-smooth pr-[calc((100vw-1280px)/2)] pl-[calc((100vw-1280px)/2)]"
         ref={scrollRef}
       >
-        <div className="flex items-stretch gap-9 px-4">
+        <div className="flex flex-col items-stretch gap-9 px-4 md:flex-row">
           <CaseStudyCard
             description="Enim dui cras auctor tortor sed felis ultrices. Nulla semper molestie turpis id et arcu accumsan est."
             logo="/images/case-studies/pacha.png"
@@ -116,9 +108,9 @@ const CaseStudyCard = ({
 }) => {
   return (
     <div
-      className={`${classname} relative flex max-h-[288px] min-w-[686px] justify-between space-y-10 rounded-lg pt-8 pl-8`}
+      className={`${classname} relative flex flex-col justify-between overflow-hidden rounded-lg md:max-h-[288px] md:min-w-[686px] md:flex-row`}
     >
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between gap-8 py-8 pl-8">
         <div className="space-y-4">
           <img src={logo} />
           <p className="text-dark/70">{description}</p>

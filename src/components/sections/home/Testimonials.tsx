@@ -1,4 +1,4 @@
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function Testimonials() {
   return (
@@ -7,23 +7,17 @@ export default function Testimonials() {
       className="bg-light flex flex-col items-center justify-center gap-y-14 py-10"
     >
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="bg-dark relative flex justify-between gap-14 rounded-3xl px-10 text-white">
-          <div className="z-10 mr-1 max-w-[330px] space-y-8 py-10">
-            <EyebrowText text="Testimonials" />
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Don't just take our word for it
-              </h1>
-              <h2 className="text-lg leading-relaxed text-white/70">
-                Sociis faucibus non vestibulum fermentum aliquam amet. At
-                scelerisque a tincidunt sit faucibus in pellentesque mattis.
-              </h2>
-            </div>
-          </div>
+        <div className="bg-dark relative flex flex-col justify-between gap-14 rounded-3xl px-10 pb-20 text-white md:flex-row md:pb-0">
+          <SectionTitle
+            eyebrowText="Testimonials"
+            heading="Don't just take our word for it"
+            subheading="Sociis faucibus non vestibulum fermentum aliquam amet. At scelerisque a tincidunt sit faucibus in pellentesque mattis."
+            classname="z-10 mr-1 max-w-[330px] py-10"
+          />
 
-          <div className="z-10 grid flex-1 grid-cols-2 gap-6">
+          <div className="z-20 grid flex-1 gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-6">
-              <div className="rounded-b-xl bg-white/2 p-6" />
+              <div className="hidden rounded-b-xl bg-white/2 p-6 md:block" />
 
               <TestimonialsCard
                 message={`"Commerit's voice-driven solutions have transformed our customer engagement. Their AI efficiently handles inquiries, allowing our team to focus on more complex tasks while improving response times and providing 24/7 support."`}
@@ -37,17 +31,19 @@ export default function Testimonials() {
                 company="EFG Incorporated"
               />
 
-              <div className="rounded-t-xl bg-white/2 p-6" />
+              <div className="hidden rounded-t-xl bg-white/2 p-6 md:block" />
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="rounded-b-xl bg-white/2 p-24" />
+              <div className="hidden rounded-b-xl bg-white/2 p-24 md:block" />
+
               <TestimonialsCard
                 message={`"The voice solutions from Commerit have redefined our customer service. Their AI manages queries effortlessly, enabling our staff to concentrate on higher-level tasks and ensuring clients receive constant support."`}
                 name="Jana Mae"
                 company="EFG Incorporated"
               />
-              <div className="flex-1 rounded-t-xl bg-white/2 p-6" />
+
+              <div className="hidden flex-1 rounded-t-xl bg-white/2 p-6 md:block" />
             </div>
           </div>
 

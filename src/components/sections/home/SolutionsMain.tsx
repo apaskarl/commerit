@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function SolutionsMain() {
   return (
@@ -8,21 +8,14 @@ export default function SolutionsMain() {
       className="text-dark bg-light relative flex flex-col items-center justify-center pt-10 pb-20"
     >
       <div className="container mx-auto max-w-7xl space-y-14 px-4">
-        <div className="flex-1 space-y-8 pb-1">
-          <EyebrowText text="Solutions" />
+        <SectionTitle
+          eyebrowText="Solutions"
+          heading=" Everything we offer"
+          subheading="Sociis faucibus non vestibulum fermentum aliquam amet. At scelerisque a tincidunt sit faucibus in pellentesque mattis."
+          classname="flex-1 pb-1"
+        />
 
-          <div className="space-y-6">
-            <h1 className="text-4xl font-medium tracking-tight">
-              Everything we offer
-            </h1>
-            <h2 className="text-dark/70 w-1/2 text-lg leading-relaxed">
-              Sociis faucibus non vestibulum fermentum aliquam amet. At
-              scelerisque a tincidunt sit faucibus in pellentesque mattis.
-            </h2>
-          </div>
-        </div>
-
-        <div className="flex justify-between gap-x-6">
+        <div className="flex flex-col justify-between gap-6 md:flex-row">
           <div className="flex-1">
             <div className="space-y-10 px-6 py-10">
               <div className="space-y-8">
@@ -77,7 +70,7 @@ export default function SolutionsMain() {
             </div>
           </div>
 
-          <div className="bg-dark relative flex flex-1 flex-col items-center justify-center rounded-3xl text-white">
+          <div className="bg-dark relative flex flex-1 flex-col items-center justify-center rounded-3xl p-10 text-white">
             <div className="space-y-10">
               <div className="w-max rounded-xl border border-white bg-white/5 p-5 backdrop-blur-xl">
                 <img src="/images/logo.png" alt="" className="w-max" />

@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import EyebrowText from "../ui/EyebrowText";
 import { Icon } from "@iconify/react";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function WhatWeDo() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -32,20 +32,13 @@ export default function WhatWeDo() {
     >
       <div className="container mx-auto mb-1 flex max-w-7xl flex-col px-4">
         <div className="flex justify-between">
-          <div className="flex-1 space-y-8">
-            <EyebrowText text="What We Do" />
+          <SectionTitle
+            eyebrowText="What We Do"
+            heading="Improving your workflow"
+            subheading=" A feugiat lectus ut nunc congue et vel ornare."
+          />
 
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Improving your workflow
-              </h1>
-              <h2 className="w-1/2 text-lg leading-relaxed text-white/70">
-                A feugiat lectus ut nunc congue et vel ornare.
-              </h2>
-            </div>
-          </div>
-
-          <div className="flex items-end justify-end">
+          <div className="hidden items-end justify-end md:flex">
             <div className="flex items-center gap-x-2">
               <button
                 onClick={scrollLeft}

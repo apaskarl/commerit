@@ -28,18 +28,18 @@ export default function Menu() {
         className="relative z-50 flex h-8 w-8 flex-col items-center justify-center space-y-[5px] md:hidden"
       >
         <span
-          className={`h-[3px] w-7 rounded-md bg-white transition-all duration-300 ${
-            isOpen ? "translate-y-[8px] rotate-45" : ""
+          className={`h-[2px] w-6 rounded-md bg-white transition-all duration-300 ${
+            isOpen ? "translate-y-[7px] rotate-45" : ""
           }`}
         />
         <span
-          className={`h-[3px] w-7 rounded-md bg-white transition-all duration-300 ${
+          className={`h-[2px] w-6 rounded-md bg-white transition-all duration-300 ${
             isOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`h-[3px] w-7 rounded-md bg-white transition-all duration-300 ${
-            isOpen ? "-translate-y-[8px] -rotate-45" : ""
+          className={`h-[2px] w-6 rounded-md bg-white transition-all duration-300 ${
+            isOpen ? "-translate-y-[7px] -rotate-45" : ""
           }`}
         />
       </button>

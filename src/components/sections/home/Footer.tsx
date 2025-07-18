@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Logo from "../ui/Logo";
+import Logo from "../../ui/Logo";
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
       className="bg-dark relative flex flex-col items-center justify-center py-10 text-white"
     >
       <div className="container mx-auto max-w-7xl space-y-10 px-4">
-        <div className="flex justify-between">
+        <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div className="space-y-6">
             <Logo />
             <p className="leading-relaxed text-white">
@@ -35,7 +35,7 @@ export default function Footer() {
 
         <div className="h-[1px] w-full bg-white/10" />
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <p className="text-sm tracking-tight text-white/40">
             © 2025 Commerit. All rights reserved.
           </p>

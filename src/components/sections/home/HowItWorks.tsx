@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function HowItWorks() {
   return (
@@ -8,21 +8,17 @@ export default function HowItWorks() {
       className="bg-light flex flex-col items-center justify-center gap-y-14 py-10"
     >
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="bg-dark relative flex justify-between gap-14 rounded-3xl p-10 text-white">
-          <div className="z-10 mr-1 max-w-[430px] space-y-8">
-            <EyebrowText text="How it works" />
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Our Proven Process
-              </h1>
-              <h2 className="text-lg leading-relaxed text-white/70">
-                Sociis faucibus non vestibulum fermentum aliquam amet. At
-                scelerisque a tincidunt sit faucibus in pellentesque mattis.
-              </h2>
-            </div>
-          </div>
+        <div className="bg-dark relative flex flex-col justify-between gap-14 rounded-3xl p-10 pb-20 text-white md:flex-row md:pb-10">
+          {/* Left */}
+          <SectionTitle
+            eyebrowText="How it works"
+            heading="Our Proven Process"
+            subheading="Sociis faucibus non vestibulum fermentum aliquam amet. At scelerisque a tincidunt sit faucibus in pellentesque mattis."
+            classname="z-10 mr-1 max-w-[430px]"
+          />
 
-          <div className="relative z-10 flex-1">
+          {/* Right */}
+          <div className="relative z-20 flex-1">
             <div className="absolute flex h-full w-6 flex-col items-center">
               <Icon
                 icon="famicons:square-sharp"
@@ -95,9 +91,7 @@ const HowItWorksCard = ({
         <div className="flex aspect-square w-6 items-center justify-center rounded-sm bg-white leading-[120%]">
           <p className="text-dark font-mono text-sm font-medium">{id}</p>
         </div>
-
         <div className="h-[1px] w-8 bg-white" />
-
         <div className="bg-accent h-8 w-[3px]" />
       </div>
 
@@ -105,7 +99,7 @@ const HowItWorksCard = ({
         <img src={icon} />
 
         <div className="space-y-3">
-          <p className="text-2xl font-medium">{text}</p>
+          <p className="text-lg font-medium md:text-2xl">{text}</p>
           <p className="text-white/70">{subtext}</p>
         </div>
       </div>

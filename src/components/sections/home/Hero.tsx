@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import CTAButtons from "../ui/CTAButtons";
-import EyebrowText from "../ui/EyebrowText";
+import CTAButtons from "../../ui/CTAButtons";
+import EyebrowText from "../../ui/EyebrowText";
 
 export default function Hero() {
   const leaders = ["l1", "l2", "l3", "l4", "l5", "l6"];
@@ -22,7 +22,7 @@ export default function Hero() {
             <EyebrowText text="AI Sofware Agency" />
 
             <div className="space-y-6 text-center md:text-start">
-              <h1 className="text-6xl leading-16 font-medium tracking-tight">
+              <h1 className="lh-[110px] text-6xl font-medium tracking-tight">
                 We build custom AI agents that automate your business
               </h1>
 
@@ -33,12 +33,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="md:hidden">
-            <CTAButtons column />
-          </div>
-          <div className="hidden md:block">
-            <CTAButtons />
-          </div>
+          <CTAButtons />
         </div>
 
         <div className="flex flex-col items-center space-y-6">
@@ -57,7 +52,7 @@ export default function Hero() {
               <div className="from-dark pointer-events-none absolute top-0 bottom-0 left-0 z-10 w-20 bg-gradient-to-r to-transparent" />
 
               <motion.div
-                className="flex items-center gap-x-12"
+                className="flex items-center gap-x-14"
                 animate={{
                   x: ["0%", "-80%"],
                 }}

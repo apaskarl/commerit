@@ -1,8 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import EyebrowText from "../ui/EyebrowText";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function FAQs() {
   return (
@@ -11,18 +9,13 @@ export default function FAQs() {
       className="bg-light text-dark flex flex-col items-center justify-center gap-y-14 pt-20 pb-10"
     >
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="relative flex justify-between gap-14">
-          <div className="mr-1 max-w-[330px] space-y-8">
-            <EyebrowText text="FAQs" />
-            <div className="space-y-6">
-              <h1 className="text-4xl font-medium tracking-tight">
-                Here's what you need to know
-              </h1>
-              <h2 className="text-dark/70 text-lg leading-relaxed">
-                A feugiat lectus ut nunc congue et vel ornare.
-              </h2>
-            </div>
-          </div>
+        <div className="relative flex flex-col justify-between gap-14 md:flex-row">
+          <SectionTitle
+            eyebrowText="FAQs"
+            heading="Here's what you need to know"
+            subheading="A feugiat lectus ut nunc congue et vel ornare."
+            classname="mr-1 max-w-[330px]"
+          />
 
           <div className="flex-1">
             <div className="divide-dark/10 border-dark/10 flex flex-col space-x-0 divide-x-0 divide-y border-y">
@@ -69,10 +62,10 @@ const FAQButton = ({
   return (
     <div className="space-y-3 p-6">
       <button
-        className="flex w-full cursor-pointer items-center justify-between text-start text-xl font-medium duration-300 hover:opacity-50"
+        className="flex w-full cursor-pointer items-center justify-between gap-2 text-start text-xl font-medium duration-300 hover:opacity-50"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {question}
+        <span className="flex-1">{question}</span>
         <Icon
           icon="famicons:chevron-down-outline"
           className={`size-5 transition-transform duration-300 ${
